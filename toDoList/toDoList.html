@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toDoList</title>
+    <script src="../js/angular/angular.min.js"></script>
+    <style>
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<div ng-app="todolist" ng-controller="myCtrl">
+    <h2>toDoList</h2>
+    <form>
+        <input type="text" ng-model="addText">
+        <button ng-click="new()">New</button>
+    </form>
+    <ul>
+        <li ng-repeat="x in list"><label><input type="checkbox"  ng-model="x.done" >{{ x.name }}</label></li>
+    </ul>
+    <button ng-click="del()">Del</button>
+</div>
+
+<script>
+    var app = angular.module('todolist', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.list = [
+            {name:'shopping',done:false},
+            {name:'homeWork',done:true}
+        ];
+        $scope.new = function () {
+            if($scope.addText){
+                $scope.list.push({name:$scope.addText, done:false});
+                $scope.addText = '';
+            }else{
+                alert('not information!')
+            }
+        }
+
+        $scope.del = function () {
+            var oldList = $scope.list;
+            $scope.list = [];
+            angular.forEach(oldList, function (x) {
+                if(!x.done){
+                    $scope.list.push(x);
+                    // console.log(x)
+                }
+            })
+        }
+
+    })
+</script>
+</body>
+</html>
