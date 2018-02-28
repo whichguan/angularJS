@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>one Controller</title>
+    <script src="../js/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div ng-controller="myCtrl1">
+    hello {{ name1 }}
+</div>
+<div>{{ name }}</div>
+<div ng-controller="myCtrl2">
+    hello {{ name2 }}
+</div>
+<script>
+
+  var app = angular.module("myApp", []);
+  app.controller('myCtrl1', function ($scope) {
+    $scope.name1 = 'test1';
+  });
+
+  app.controller('myCtrl2', function ($scope) {
+    $scope.name2 = 'test2';
+  });
+
+  app.controller('myCtrl', function ($scope) {
+    $scope.name = 'test';
+  });
+
+</script>
+</body>
+</html>

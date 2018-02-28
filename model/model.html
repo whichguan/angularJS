@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>one Controller</title>
+    <script src="../js/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="greetCtrl">
+    hello {{ name }}
+</div>
+<div ng-controller="listCtrl">
+    <ul>
+        <li ng-repeat="name in names">{{ time }} : {{ name }}</li>
+    </ul>
+</div>
+<script>
+
+  var app = angular.module("myApp", []);
+  app.controller('greetCtrl', function ($scope, $rootScope) {
+    $scope.name = 'angular';
+    $rootScope.time = '2018年';
+  });
+
+  app.controller('listCtrl', function ($scope) {
+    $scope.names = ['which','joanne','jj'];
+  });
+
+
+</script>
+</body>
+</html>
