@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nodeBook</title>
+    <script src="../js/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myNote" ng-controller="myCtrl">
+    <div class="main">
+        <h2>笔记</h2>
+        <textarea rows="5" cols="40" ng-model="noteText"></textarea>
+        <button ng-click="clear()">Clear</button>
+        <div>剩下:{{ world() }}</div>
+    </div>
+</div>
+<script>
+    var app = angular.module('myNote', []);
+    app.controller('myCtrl', function ($scope) {
+        // world
+        $scope.noteText ='';
+        $scope.world = function () {
+            return 100 - $scope.noteText.length;
+        }
+        // clear
+        $scope.clear = function () {
+            $scope.noteText ='';
+        }
+
+    });
+</script>
+</body>
+</html>
