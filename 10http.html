@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select</title>
+</head>
+<body>
+<script src="js/angular/angular.min.js"></script>
+<div ng-app="myApp" ng-controller="myCtrl">
+   <button ng-click="count=count + 1">up</button>
+   <button ng-click="count=count - 1">down</button>
+    {{ count }}
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.count = 0;
+    });
+</script>
+</body>
+</html>

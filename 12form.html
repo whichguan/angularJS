@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+<script src="js/angular/angular.min.js"></script>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <input type="text" ng-model="input">
+    <hr>
+    <label ng-repeat="x in checkList">
+        <input type="checkbox">{{x}}
+    </label>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.input = 1;
+        $scope.checkList = ['a','b','c'];
+    });
+</script>
+</body>
+</html>

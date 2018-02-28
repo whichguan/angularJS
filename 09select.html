@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select</title>
+</head>
+<body>
+<script src="js/angular/angular.min.js"></script>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <select ng-init="selectName=names[0]" ng-model="selectName" ng-options="x for x in names"></select>
+    <hr>
+    <select>
+        <option ng-repeat="y in names" value="{{ y }}">{{ y }}</option>
+    </select>
+    <hr>
+    <table>
+        <tr ng-repeat="x in lists ">
+            <td>{{ x.name }}</td>
+            <td>{{ x.count }}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.names =['aaa','ddd','ccc'];
+        $scope.lists =[
+            {
+                name:'dsafsdf',
+                count:'1'
+            },
+            {
+                name:'fas',
+                count:'2'
+            },
+            {
+                name:'afd',
+                count:'3'
+            }
+        ];
+    });
+</script>
+</body>
+</html>
