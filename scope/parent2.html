@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8"/>
+    <title>scope nick</title>
+    <script src="../js/angular/angular.min.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="main">
+    {{ name }}
+    <div box></div>
+</div>
+<script type="text/javascript">
+    var app = angular.module('app', []);
+    app.controller('main', function ($scope) {
+        $scope.args = {};
+    }).directive('box', function () {
+        return {
+            scope: {},
+            link: function ($scope, $element, $attr) {
+                console.log($scope.$args); //输出 undefined
+            }
+        }
+        }
+    );
+
+</script>
+</body>
+</html>

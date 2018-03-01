@@ -21,3 +21,12 @@
 ## 如何复用Model
 
 scope是有作用域在对应的Controller里面，rootScope是定义根作用，所有的Controller可用。
+
+
+## $scope 作用域
+- $scope是视图和控制器之间的纽带，是一个存储应用数据模型的对象，有可用的方法和属性
+- $rootScope 作用于整个应用中。是各个‘controller’ 中‘scope’ 的桥梁。
+- 子作用域的数据只能用在子作用域，父作用域的可用于父和子。
+- 沿着继承树向上查找属性，直到找到为止。
+### 独立作用域
+- 不会继承父作用域，directive

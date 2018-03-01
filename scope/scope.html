@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scope</title>
+    <script src="../js/angular/angular.min.js"></script>
+</head>
+<body ng-app="myScope">
+<div ng-controller="myCtrl">
+    {{ name }}
+    <hr>
+    <button ng-click="sayHello()">变</button>
+    {{ name2 }}
+</div>
+<script>
+    var app = angular.module('myScope', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.name ='hello world';
+        $scope.sayHello = function () {
+            $scope.name2 = $scope.name + '是个小孩';
+        };
+    });
+
+</script>
+</body>
+</html>

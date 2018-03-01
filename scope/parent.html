@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8"/>
+    <title>scope nick</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<script type="text/javascript">
+    angular.module('app', [])
+        .controller('parentCtrl', ['$scope', function($scope) {
+            $scope.args = {};
+            $scope.args.content = 'Nick DeveloperWorks';
+        }])
+        .controller('childCtrl', ['$scope', function($scope) {
+            $scope.args = {};
+            $scope.args.content = 'Nick DeveloperWorks for test';
+        }]);
+</script>
+<body ng-app="app">
+<div ng-controller="parentCtrl">
+    <input ng-model="args.content">
+    <div ng-controller="childCtrl">
+        <input ng-model="args.content">
+    </div>
+</div>
+</body>
+</html>
